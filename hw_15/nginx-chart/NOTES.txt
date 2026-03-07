@@ -1,0 +1,11 @@
+\
+1) Установить:
+  helm install my-nginx ./nginx-chart
+
+2) Проверить:
+  kubectl get pods
+  kubectl get svc
+  kubectl get ingress
+
+3) Пример curl для ingress:
+  curl -H "Host: example.com" http://<INGRESS_IP>/
