@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+ db:
+  image: postgres:15
+  environment:
+   POSTGRES_DB: lakefs
+   POSTGRES_USER: lakefs
+   POSTGRES_PASSWORD: lakefs_pass
+ minio:
+  image: minio/minio
+  command: server /data --console-address ":9001"
+  ports: ["9000:9000","9001:9001"]
+ lakefs:
+  image: treeverse/lakefs:latest
+  ports: ["8000:8000"]

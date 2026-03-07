@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+ db:
+  image: postgres:15
+  environment:
+   POSTGRES_DB: airflow
+   POSTGRES_USER: airflow
+   POSTGRES_PASSWORD: airflow_pass
+ webserver:
+  image: apache/airflow:2.9.1
+  command: webserver
+  ports: ["8080:8080"]
+ scheduler:
+  image: apache/airflow:2.9.1
+  command: scheduler
