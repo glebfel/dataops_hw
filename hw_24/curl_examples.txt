@@ -1,0 +1,5 @@
+curl -X POST http://127.0.0.1:8000/api/v1/predict -H "Content-Type: application/json" -d '{"age": 59.0, "sex": 2.0, "bmi": 32.1, "bp": 101.0, "s1": 157.0, "s2": 93.2, "s3": 38.0, "s4": 4.0, "s5": 4.8598, "s6": 87.0}'
+-> {"predict": 186.51}
+
+curl -X POST http://127.0.0.1:8000/api/v1/predict -H "Content-Type: application/json" -d '{"age": 30.0, "sex": 2.0, "bmi": 25.2, "bp": 83.0, "s1": 178.0, "s2": 118.4, "s3": 34.0, "s4": 5.0, "s5": 4.852, "s6": 83.0}'
+-> {"predict": 180.13}
