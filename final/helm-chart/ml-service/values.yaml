@@ -1,0 +1,37 @@
+replicaCount: 2
+
+image:
+  repository: ml-service
+  tag: latest
+  pullPolicy: IfNotPresent
+
+env:
+  LOCAL_MODEL_PATH: /app/model/diabets_model.joblib
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+probes:
+  startup:
+    failureThreshold: 30
+    periodSeconds: 2
+  readiness:
+    initialDelaySeconds: 5
+    periodSeconds: 10
+  liveness:
+    initialDelaySeconds: 10
+    periodSeconds: 15
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  host: ml-service.local
